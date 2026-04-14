@@ -25,3 +25,19 @@ class Solution {
         return ans;
     }
 }
+
+// DFS approach
+class Solution {
+    public int minDepth(TreeNode root) {
+        if(root==null) return 0;
+        return sol(root);
+    }
+
+    public int sol(TreeNode root){
+        if(root==null) return Integer.MAX_VALUE;
+        else if(root.left==null && root.right==null) return 1;
+        int l=sol(root.left);
+        int r=sol(root.right);
+        return Math.min(l,r)+1;
+    }
+}
